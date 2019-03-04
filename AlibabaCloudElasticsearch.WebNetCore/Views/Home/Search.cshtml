@@ -1,0 +1,60 @@
+﻿
+@model SearchViewModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>Search</h2>
+
+
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="indexName" value="@Model.IndexName" />
+    <div class="row">
+        <div class="col-md-3">
+            <p>Query</p>
+        </div>
+        <div class="col-md-5">
+            <input type="text" name="query" class="form-control" />
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-5">
+            <input type="submit" value="Search" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+@if(Model.Respuesta.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>Date of birth</td>
+                <td>Company</td>
+                <td>Department</td>
+                <td>Role</td>
+                <td>Years in role</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var document in Model.Respuesta)
+            {
+            <tr>
+                <td>@document.FirstName</td>
+                <td>@document.LastName</td>
+                <td>@document.DateOfBirth</td>
+                <td>@document.Company</td>
+                <td>@document.Department</td>
+                <td>@document.Role</td>
+                <td>@document.YearsInRole</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Alibaba Cloud ElasticSearch Demo</h2>
+        <ul>
+            <li>Sample page for a demo for Alibaba Cloud Elastic search service.</li>
+        </ul>
+    </div>
+    <div class="col-md-5">
+        <h2>Indexes</h2>
+        <table class="table table-striped">
+            @foreach(string index in Model)
+            {
+            <tr>
+                <td>@index</td>
+                <td>@Html.ActionLink("Add data", "AddData", new { indexName = index })</td>
+                <td>@Html.ActionLink("Search", "Search", new { indexName = index })</td>
+            </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-3">
+        <h2>Overview</h2>
+
+        @Html.ActionLink("Create new index", "CreateESIndex",new { },new { @class="btn btn-primary" })
+    </div>
+</div>

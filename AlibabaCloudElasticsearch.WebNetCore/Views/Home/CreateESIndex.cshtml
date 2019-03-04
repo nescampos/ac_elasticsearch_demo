@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "CreateESIndex";
+}
+
+<h2>Create ES Index</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-3">
+            <p>Index name</p>
+        </div>
+        <div class="col-md-5">
+            <input type="text" name="indexName" class="form-control" />
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-md-5">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+}
